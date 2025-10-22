@@ -1,0 +1,72 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>About Glenn 🧬</title> <style> body { margin: 0; font-family: "Comic Sans MS", "Poppins", sans-serif; background: linear-gradient(135deg, #ff007f, #6b73ff, #00e6e6); background-size: 300% 300%; animation: gradientShift 10s ease infinite; color: white; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; overflow: hidden; }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+p {
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+li {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+button {
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: #ffde59;
+}
+
+.hidden {
+  display: none;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #ffde59;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+</style> </head> <body> <h1>About Glenn 🧬</h1> <p>Hi, I’m Glenn — karate black belt, piano player, and occasional website wizard.</p> <p>Here’s some quick lore about me:</p> <ul> <li>🥋 Karate kicks: 100% effective, 0% violence.</li> <li>🎹 Piano skills: somewhere between Beethoven and a cat walking on keys.</li> <li>💻 Tech hobbyist: I break code so you don’t have to.</li> <li>🍕 Pizza fan: scientifically proven best food.</li> </ul>
+<button onclick="reveal()">Reveal Secret Fact 🤫</button>
+<p class="hidden" id="secret">One time I coded for 3 hours straight... then realized I was in the wrong file.</p>
+<button onclick="window.location.href='index.html'">Back to Home 🏠</button>
+<footer>© 2025 glennjamin | Powered by curiosity and leftover pizza 🍕</footer> <script> function reveal() { document.getElementById("secret").style.display = "block"; } </script> </body> </html>

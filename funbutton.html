@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Button That Does Nothing 😏</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #ff6a00, #ee0979, #6a11cb);
+      background-size: 300% 300%;
+      animation: gradientShift 10s ease infinite;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      animation: float 3s ease-in-out infinite;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    button {
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      transition: transform 0.2s, background-color 0.2s;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ffde59;
+    }
+
+    #message {
+      font-size: 1.3rem;
+      max-width: 500px;
+      margin-top: 20px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Button That Does Nothing 😏</h1>
+  <button id="funButton" onclick="randomMessage()">Click me!</button>
+  <div id="message">What could possibly happen…?</div>
+
+  <button onclick="window.location.href='index.html'">Back to Home 🏠</button>
+
+  <footer>© 2025 glennjamin | Powered by curiosity and chaos ⚡</footer>
+
+  <script>
+    const funnyMessages = [
+      "Installing nothing… complete.",
+      "Beep boop. You clicked the wrong button.",
+      "The universe thanks you for your effort.",
+      "Error 9000: Fun not found.",
+      "Congratulations! You’ve achieved… disappointment.",
+      "Do you feel smarter yet? Neither do I.",
+      "The button hums a mysterious tune.",
+      "Your click has been logged. Into oblivion.",
+      "I told you, this button does nothing.",
+      "Nice try. But nothing happened again.",
+      "I can see you lol",
+      "tell lg i said hi",
+      "404 - errrrrrrrrrror"
+
+    ];
+
+    function randomMessage() {
+      const msgDiv = document.getElementById("message");
+      const randomIndex = Math.floor(Math.random() * funnyMessages.length);
+      msgDiv.innerText = funnyMessages[randomIndex];
+
+      // Optional: shake button for extra chaos
+      const button = document.getElementById("funButton");
+      button.style.transform = `translate(${Math.random()*20-10}px, ${Math.random()*10-5}px)`;
+      setTimeout(() => { button.style.transform = ""; }, 200);
+    }
+  </script>
+</body>
+</html>

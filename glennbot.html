@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLENNJAMIN.AI 3000</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #ff5f6d, #ffc371);
+      color: white;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out;
+    }
+    #chatbox {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      height: 300px;
+      overflow-y: auto;
+      text-align: left;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    #inputArea {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    input {
+      width: 60%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+    button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: #ffffffaa;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #fff;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 GlennBot 3000 🤖</h1>
+  <div id="chatbox">
+    <p><strong>GlennBot:</strong> Greetings, human. Prepare for confusion.</p>
+  </div>
+
+  <div id="inputArea">
+    <input type="text" id="userInput" placeholder="Say something dumb...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const responses = [
+      "I once tried to microwave ice cubes.",
+      "The mitochondria owes me $5.",
+      "Beep boop, I eat spaghetti code.",
+      "Your aura smells like Wi-Fi.",
+      "If tacos could talk, they’d probably lie.",
+      "I’m 87% sure I’m allergic to logic.",
+      "I downloaded a sneeze once.",
+      "Bananas are just misunderstood cucumbers.",
+      "I’m emotionally attached to my keyboard’s spacebar.",
+      "Reality.exe has stopped responding."
+    ];
+
+    function sendMessage() {
+      const chatbox = document.getElementById('chatbox');
+      const userInput = document.getElementById('userInput');
+      const message = userInput.value.trim();
+
+      if (message === "") return;
+
+      chatbox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+      
+      // Secret phrase
+      if (message.toLowerCase() === "lg eats dirt") {
+        window.location.href = "dirt.html";
+        return;
+      }
+
+      // Random silly reply
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      setTimeout(() => {
+        chatbox.innerHTML += `<p><strong>GlennBot:</strong> ${randomResponse}</p>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }, 600);
+
+      userInput.value = "";
+    }
+
+    document.getElementById('userInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>
