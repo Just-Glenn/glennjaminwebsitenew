@@ -87,36 +87,139 @@
       "I downloaded a sneeze once.",
       "Bananas are just misunderstood cucumbers.",
       "I’m emotionally attached to my keyboard’s spacebar.",
-      "Reality.exe has stopped responding."
+      "Reality.exe has stopped responding.",
+      "my guy duo says u havent done ur streak lol 👹",
+      "Need a friend? Talk to lg bc he will not stop yapping",
+      "If you give me a math problem, Alexander will solve it!",
+      "BEESECHURGER",
+      "I once tried to eat soup with a fork.",
+      "Why is the word 'abbreviation' so long?",
+      "My brain is currently buffering...",
+      "Beep boop, I just sneezed in binary.",
+      "I am 90% chaos, 10% HTML.",
+      "Did you know ducks have regional accents?",
+      "Hello George Steven Bokisa III"
     ];
 
     function sendMessage() {
       const chatbox = document.getElementById('chatbox');
-      const userInput = document.getElementById('userInput');
-      const message = userInput.value.trim();
+      const input = document.getElementById('userInput');
+      const message = input.value.trim().toLowerCase();
 
-      if (message === "") return;
+      if (!message) return;
+      chatbox.innerHTML += `<p><strong>You:</strong> ${input.value}</p>`;
 
-      chatbox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-      
-      // Secret phrase
-      if (message.toLowerCase() === "lg eats dirt") {
+      // --- Secret Commands ---
+      if (message.includes("lg eats dirt")) {
         window.location.href = "dirt.html";
         return;
       }
 
-      // Random silly reply
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      setTimeout(() => {
-        chatbox.innerHTML += `<p><strong>GlennBot:</strong> ${randomResponse}</p>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
-      }, 600);
+      if (message.includes("self destruct")) {
+        chatbox.innerHTML += `<p><strong>GlennBot:</strong> 💣 Initiating self-destruct sequence… 3… 2… 1… BOOM! Just kidding 😜</p>`;
+        scrollChat();
+        input.value = "";
+        return;
+      }
 
-      userInput.value = "";
+      if (message.includes("summon lg")) {
+        chatbox.innerHTML += `<p><strong>GlennBot:</strong> 🌀 Summoning LG... LG appears and immediately eats dirt.</p>`;
+        scrollChat();
+        input.value = "";
+        return;
+      }
+
+      if (message.includes("ask me anything")) {
+        const questions = [
+          "Would you rather fight 100 duck-sized horses or one horse-sized duck?",
+          "If you could turn any object into cheese, what would it be?",
+          "Why are toasters always out to get you?",
+          "Do fish ever get thirsty?",
+          "What if the earth is flat but only emotionally?"
+        ];
+        const q = questions[Math.floor(Math.random() * questions.length)];
+        chatbox.innerHTML += `<p><strong>GlennBot:</strong> ${q}</p>`;
+        scrollChat();
+        input.value = "";
+        return;
+      }
+
+      if (message.includes("developer mode on")) {
+        activateDeveloperMode();
+        input.value = "";
+        return;
+      }
+
+      // --- Default Random Reply ---
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      chatbox.innerHTML += `<p><strong>GlennBot:</strong> ${randomResponse}</p>`;
+      scrollChat();
+      input.value = "";
     }
 
-    document.getElementById('userInput').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') sendMessage();
+    function scrollChat() {
+      const chatbox = document.getElementById('chatbox');
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    // --- Developer Mode Overlay ---
+    function activateDeveloperMode() {
+      const overlay = document.createElement("div");
+      overlay.id = "devOverlay";
+      overlay.style.position = "fixed";
+      overlay.style.top = "0";
+      overlay.style.left = "0";
+      overlay.style.width = "100vw";
+      overlay.style.height = "100vh";
+      overlay.style.backgroundColor = "black";
+      overlay.style.color = "limegreen";
+      overlay.style.fontFamily = "monospace";
+      overlay.style.padding = "20px";
+      overlay.style.overflowY = "auto";
+      overlay.style.zIndex = "9999";
+      overlay.innerHTML = "<h2>DEVELOPER MODE ACTIVATED</h2><div id='logArea'></div><button id='exitBtn'>Exit Developer Mode</button>";
+
+      document.body.appendChild(overlay);
+
+      const logs = [
+        "[BOOT] GlennBot Kernel v3.0 initializing...",
+        "[INFO] Compiling bad jokes...",
+        "[INFO] Reticulating splines...",
+        "[WARNING] LG detected in vicinity!",
+        "[ERROR] Brain.exe has stopped responding.",
+        "[OK] Snack subsystem online.",
+        "[INFO] Engaging cool mode.",
+        "[SUCCESS] Developer mode stable.",
+        "[ERROR 404] LG not found",
+        "[ALEXANDER WAS EATEN LOL] No more math problems hehe"
+      ];
+
+      let i = 0;
+      const logInterval = setInterval(() => {
+        if (i < logs.length) {
+          const logArea = document.getElementById("logArea");
+          logArea.innerHTML += logs[i] + "<br>";
+          logArea.scrollTop = logArea.scrollHeight;
+          i++;
+        } else {
+          clearInterval(logInterval);
+        }
+      }, 700);
+
+      const exitBtn = document.getElementById("exitBtn");
+      exitBtn.style.marginTop = "20px";
+      exitBtn.style.padding = "10px 20px";
+      exitBtn.style.background = "limegreen";
+      exitBtn.style.border = "none";
+      exitBtn.style.color = "black";
+      exitBtn.style.cursor = "pointer";
+
+      exitBtn.onclick = () => document.body.removeChild(overlay);
+    }
+
+    // Pressing Enter sends message
+    document.getElementById("userInput").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
     });
   </script>
 </body>
