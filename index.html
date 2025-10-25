@@ -5,58 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
     <title>Glenn’s Totally Serious Website 😏</title> 
     <link rel="icon" type="image/jpeg" href="favicon.jpeg">
-    <style> body { margin: 0; font-family: "Comic Sans MS", "Poppins", sans-serif; background: linear-gradient(135deg, #6b73ff, #000dff); color: white; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow-x: hidden; }
-h1 {
-  font-size: 3rem;
-  animation: float 3s ease-in-out infinite;
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
+    <style> 
+      body { 
+        margin: 0; 
+        font-family: "Comic Sans MS", "Poppins", sans-serif; 
+        background: linear-gradient(135deg, #6b73ff, #000dff); 
+        color: white; 
+        text-align: center; 
+        min-height: 100vh; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        overflow-x: hidden; 
+      }
 
-.about {
-  max-width: 600px;
-  margin-top: 20px;
-  line-height: 1.6;
-}
+      h1 {
+        font-size: 3rem;
+        animation: float 3s ease-in-out infinite;
+      }
 
-button {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s, background-color 0.2s;
-}
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
 
-button:hover {
-  transform: scale(1.1);
-  background-color: #ffde59;
-}
+      .about {
+        max-width: 600px;
+        margin-top: 20px;
+        line-height: 1.6;
+      }
 
-footer {
-  position: fixed;
-  bottom: 10px;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
+      button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.2s, background-color 0.2s;
+      }
 
-.secret {
-  display: none;
-  margin-top: 30px;
-  font-size: 1.3rem;
-  animation: spin 2s linear infinite;
-}
+      button:hover {
+        transform: scale(1.1);
+        background-color: #ffde59;
+      }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-</style> </head> <body> <h1>Welcome to Glenn’s Corner of the Internet 🌀</h1> <p class="about"> Hi, I’m Glenn — piano player, and all-around cool human. This website contains 98% fun, 2% mystery, and 0% homework. </p> <button onclick="window.location.href='funbutton.html'">🎉 Click the Fun Button!</button>
- <button onclick="window.location.href='bio.html'">Go to my Bio 🧬</button>  <button onclick="window.location.href='glennbot.html'">🤖 Talk to GlennBot 3000</button>
-</p> <div class="secret" id="secret">🥋 You unlocked the Secret Ninja Mode! 🥋</div> <footer>© 2025 glennjamin | Built with a good 2 hours of sleep, and questionable coding decisions ☕</footer> <script> const jokes = [ "Why did the computer get cold? It left its Windows open!", "Parallel lines have so much in common… it’s a shame they’ll never meet.", "What do you call a cow with no legs? Ground beef.", "My website told me a joke once. It wasn’t funny — it was *404 not found*." ]; function tellJoke() { const random = Math.floor(Math.random() * jokes.length); document.getElementById("joke").innerText = jokes[random]; } // Konami Code Easter Egg let keys = []; const secretCode = "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba"; document.addEventListener("keydown", (e) => { keys.push(e.key); if (keys.join("").includes(secretCode)) { document.getElementById("secret").style.display = "block"; document.body.style.background = "linear-gradient(135deg, #ff0066, #ffde59)"; alert("🥋 Secret Ninja Mode Activated!"); keys = []; } if (keys.length > 20) keys.shift(); }); </script> </body> </html>
+      footer {
+        position: fixed;
+        bottom: 10px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+
+      .secret {
+        display: none;
+        margin-top: 30px;
+        font-size: 1.3rem;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style> 
+  </head> 
+
+  <body> 
+    <h1>Welcome to Glenn’s Corner of the Internet 🌀</h1> 
+    <p class="about"> 
+      Hi, I’m Glenn — piano player, and all-around cool human. This website contains 98% fun, 2% mystery, and 0% homework. 
+    </p> 
+
+    <button onclick="window.location.href='funbutton.html'">🎉 Click the Fun Button!</button>
+    <button onclick="window.location.href='bio.html'">Go to my Bio 🧬</button>  
+    <button onclick="window.location.href='glennbot.html'">🤖 Talk to GlennBot 3000</button>
+    <button onclick="window.location.href='roast.html'">🔥 Roast Machine 🔥</button>
+
+    <div class="secret" id="secret">🥋 You unlocked the Secret Ninja Mode! 🥋</div> 
+
+    <footer>© 2025 glennjamin | Built with a good 2 hours of sleep, and questionable coding decisions ☕</footer> 
+
+    <script> 
+      const jokes = [ 
+        "Why did the computer get cold? It left its Windows open!", 
+        "Parallel lines have so much in common… it’s a shame they’ll never meet.", 
+        "What do you call a cow with no legs? Ground beef.", 
+        "My website told me a joke once. It wasn’t funny — it was *404 not found*." 
+      ]; 
+
+      function tellJoke() { 
+        const random = Math.floor(Math.random() * jokes.length); 
+        document.getElementById("joke").innerText = jokes[random]; 
+      } 
+
+      // Konami Code Easter Egg 
+      let keys = []; 
+      const secretCode = "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba"; 
+      document.addEventListener("keydown", (e) => { 
+        keys.push(e.key); 
+        if (keys.join("").includes(secretCode)) { 
+          document.getElementById("secret").style.display = "block"; 
+          document.body.style.background = "linear-gradient(135deg, #ff0066, #ffde59)"; 
+          alert("🥋 Secret Ninja Mode Activated!"); 
+          keys = []; 
+        } 
+        if (keys.length > 20) keys.shift(); 
+      }); 
+    </script> 
+  </body> 
+</html>
