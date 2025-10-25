@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Roast Machine</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    button {
+      background-color: white;
+      color: #ff6a00;
+      border: none;
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #roast {
+      font-size: 1.8em;
+      margin-top: 40px;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html">← Home</a>
+  <h1 id="title">🔥 The Roast Machine 🔥</h1>
+  <button onclick="generateRoast()">Roast Me!</button>
+  <div id="roast"></div>
+
+  <script>
+    const roasts = [
+      "You have the Wi-Fi strength of a potato.",
+      "You're like a software update — always inconvenient and never on time.",
+      "You remind me of a cloud. When you disappear, it’s a beautiful day.",
+      "If laziness were an Olympic sport, you’d come in fourth. Because you wouldn’t even try for a medal.",
+      "You have something on your chin... no, the third one.",
+      "You're proof that even evolution takes a break sometimes.",
+      "Your password is probably 'password'.",
+      "You bring everyone so much joy — when you leave the room.",
+      "You look like the before picture.",
+      "You’d trip over a wireless connection.",
+      "I’d agree with you, but then we’d both be wrong.",
+      "Your brain has buffering issues.",
+      "You're like a participation trophy in human form.",
+      "You're not the dumbest person alive, but you better hope they don't die.",
+      "You could hide from the cops in the intelligence department.",
+      "You’re like a cloud — when you disappear, it’s a nice day.",
+"You have something on your chin… no, the third one.",
+"You're the human equivalent of a participation award.",
+"If laziness were a subject, you’d be the teacher.",
+"You bring everyone so much joy… when you leave the room.",
+"You’re proof Wi-Fi signals can have personalities. Yours is weak.",
+"You look like your favorite food is plain toast.",
+"You're not stupid, you just have bad ideas very confidently.",
+"You could trip over a wireless connection.",
+"If I had a dollar for every smart thing you said, I’d be broke.",
+"You're like if Google crashed halfway through making a person.",
+"Your spirit animal is a loading screen.",
+"You have the same energy as an unplugged lamp.",
+"You’re the reason shampoo bottles have directions.",
+"You’re like a software update — annoying and never on time.",
+"You’d lose a debate to a doorknob.",
+"You’re so slow even snails file complaints.",
+"You’re not ugly, you’re just… visually interesting.",
+"You radiate the same energy as a 3% phone battery.",
+"You're the kind of person who claps when the plane lands.",
+"Your brain has buffering issues.",
+"You could hide from the cops in the intelligence department.",
+"You're like a math problem with no solution.",
+"You're what happens when autocorrect gives up.",
+"Your vibe screams 'forgot the milk at the store again'.",
+"You're 80% cringe and 20% snacks.",
+"Your password is probably 'password123'.",
+"You have big 'my mom still packs my lunch' energy.",
+"You're like Wi-Fi at school — weak and constantly dropping.",
+"Your GPA probably starts with a decimal point.",
+"Your face could crash a browser tab.",
+"You have more bugs than Internet Explorer.",
+"You're not dumb, you’re just practicing for it full-time.",
+"You look like a background character in your own story.",
+"You're like a participation trophy that gave up halfway through existing.",
+"Your brain called — it said it’s tired of working overtime to make no progress.",
+"You're the reason toothpaste says 'do not eat'.",
+"You look like the human version of 'low battery'.",
+"You’re what would happen if dial-up internet became self-aware.",
+"Your ideas load slower than Windows Vista.",
+"You’re not built different, you’re built incorrectly.",
+"You could get lost in a one-tab browser window.",
+"You bring strong 'left your blinker on for 6 miles' energy.",
+"You look like you argue with autocorrect and lose.",
+"You have the same processing speed as a school Chromebook.",
+"If common sense were Wi-Fi, you’d still be buffering.",
+"You're like a phone with 1% battery and no charger in sight.",
+"Your talent is turning simple tasks into full-blown sagas.",
+"You're the kind of person who claps in movie theaters and misses the ending.",
+"You're like a puzzle with 80% of the pieces missing… and they’re all the corner ones.",
+"You’re living proof that evolution sometimes takes coffee breaks.",
+"If life were a test, you’d be the question no one knows what to do with.",
+"You're the human version of ‘Are you still watching?’ on Netflix.",
+"You’d forget to breathe if it wasn’t automated.",
+"You're like a USB — only fits when you’re flipped the wrong way twice first.",
+"You're the background noise of your own story.",
+"You could fall upstairs and somehow blame the floor.",
+"You're one Chrome tab away from total system failure.",
+"Your brain runs on potato-powered Wi-Fi.",
+"You're like a TikTok filter but without the charm.",
+"You're the kind of person who loses at rock-paper-scissors to yourself.",
+"You don’t have bad luck, you have a full subscription to it.",
+"You look like you’d Google 'how to Google'.",
+"You're the human version of a lag spike."
+
+
+    ];
+
+    function generateRoast() {
+      const roast = roasts[Math.floor(Math.random() * roasts.length)];
+      document.getElementById("roast").textContent = roast;
+    }
+  </script>
+</body>
+</html>
