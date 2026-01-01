@@ -1,121 +1,286 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-  <head> 
-    <meta charset="UTF-8" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <title>ur boy's website 😏</title> 
-    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Games (Definitely Safe)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style> 
-      body { 
-        margin: 0; 
-        font-family: "Comic Sans MS", "Poppins", sans-serif; 
-        background: linear-gradient(135deg, #6b73ff, #000dff); 
-        color: white; 
-        text-align: center; 
-        min-height: 100vh; 
-        display: flex; 
-        flex-direction: column; 
-        justify-content: center; 
-        align-items: center; 
-        overflow-x: hidden; 
-      }
+<style>
+body {
+  margin: 0;
+  font-family: Comic Sans MS, sans-serif;
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  color: white;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+}
 
-      h1 {
-        font-size: 3rem;
-        animation: float 3s ease-in-out infinite;
-      }
+h1 {
+  margin-top: 30px;
+  font-size: 2.8em;
+}
 
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-      }
+button {
+  padding: 15px 25px;
+  font-size: 1.1em;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: black;
+  margin: 10px;
+}
 
-      .about {
-        max-width: 600px;
-        margin-top: 20px;
-        line-height: 1.6;
-      }
+button:hover {
+  transform: scale(1.05);
+}
 
-      button {
-        background-color: #fff;
-        color: #000;
-        border: none;
-        padding: 10px 20px;
-        margin-top: 20px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: transform 0.2s, background-color 0.2s;
-      }
+.hidden {
+  display: none;
+}
 
-      button:hover {
-        transform: scale(1.1);
-        background-color: #ffde59;
-      }
+/* GAME AREAS */
+#gameArea, #clickerGame, #chaosGame, #mysteryGame {
+  margin: 20px auto;
+}
 
-      footer {
-        position: fixed;
-        bottom: 10px;
-        font-size: 0.9rem;
-        opacity: 0.7;
-      }
+#lgGame #gameArea {
+  width: 320px;
+  height: 320px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
 
-      .secret {
-        display: none;
-        margin-top: 30px;
-        font-size: 1.3rem;
-        animation: spin 2s linear infinite;
-      }
+/* Player & LG */
+#player {
+  width: 30px;
+  height: 30px;
+  background: lime;
+  position: absolute;
+  bottom: 10px;
+  left: 145px;
+  border-radius: 50%;
+}
 
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    </style> 
-  </head> 
+#lg {
+  width: 60px;
+  position: absolute;
+  top: 20px;
+  left: 130px;
+}
 
-  <body> 
-    <h1>Welcome to Glenn’s Corner of the Internet 🌀</h1> 
-    <p class="about"> 
-      Hi, I’m Glenn — piano player, and all-around cool human. This website contains 98% fun, 2% mystery, and 0% homework. 
-    </p> 
+#status {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
 
-    <button onclick="window.location.href='funbutton.html'">🎉 Click the Fun Button!</button>
-    <button onclick="window.location.href='bio.html'">Go to my Bio 🧬</button>  
-    <button onclick="window.location.href='glennbot.html'">🤖 Talk to GlennBot 3000</button>
-    <button onclick="window.location.href='roast.html'">🔥 Roast Machine 🔥</button>
+/* JUMPSCARE */
+#jumpscare {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  z-index: 9999;
+}
 
-    <div class="secret" id="secret">🥋 You unlocked the Secret Ninja Mode! 🥋</div> 
+#jumpscare img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: shake 0.15s infinite;
+}
 
-    <footer>© 2025 glennjamin | Built with a good 2 hours of sleep, and questionable coding decisions ☕</footer> 
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-10px, 5px); }
+  50% { transform: translate(10px, -5px); }
+  75% { transform: translate(-5px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+</style>
+</head>
 
-    <script> 
-      const jokes = [ 
-        "Why did the computer get cold? It left its Windows open!", 
-        "Parallel lines have so much in common… it’s a shame they’ll never meet.", 
-        "What do you call a cow with no legs? Ground beef.", 
-        "My website told me a joke once. It wasn’t funny — it was *404 not found*." 
-      ]; 
+<body>
 
-      function tellJoke() { 
-        const random = Math.floor(Math.random() * jokes.length); 
-        document.getElementById("joke").innerText = jokes[random]; 
-      } 
+<h1>🎮 Games That Definitely Won't Install Malware 🎮</h1>
 
-      // Konami Code Easter Egg 
-      let keys = []; 
-      const secretCode = "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba"; 
-      document.addEventListener("keydown", (e) => { 
-        keys.push(e.key); 
-        if (keys.join("").includes(secretCode)) { 
-          document.getElementById("secret").style.display = "block"; 
-          document.body.style.background = "linear-gradient(135deg, #ff0066, #ffde59)"; 
-          alert("🥋 Secret Ninja Mode Activated!"); 
-          keys = []; 
-        } 
-        if (keys.length > 20) keys.shift(); 
-      }); 
-    </script> 
-  </body> 
+<!-- MENU -->
+<div id="menu">
+  <p>Select a game (all safe, probably)</p>
+  <button onclick="startLGGame()">Dodge LG</button>
+  <button onclick="startClickerGame()">Totally Safe Clicker</button>
+  <button onclick="startChaosGame()">Chaos Button Smash</button>
+  <button onclick="startMysteryGame()">Mystery Box Adventure</button>
+</div>
+
+<!-- LG GAME -->
+<div id="lgGame" class="hidden">
+  <div id="gameArea">
+    <img src="lg.png" id="lg">
+    <div id="player"></div>
+  </div>
+  <p id="status">Survive.</p>
+  <button onclick="resetLGGame()">Back to Menu</button>
+</div>
+
+<!-- CLICKER GAME -->
+<div id="clickerGame" class="hidden">
+  <h2>Totally Safe Clicker</h2>
+  <button id="clickBtn">Click me!</button>
+  <p>Clicks: <span id="clickCount">0</span></p>
+  <button onclick="resetClickerGame()">Back to Menu</button>
+</div>
+
+<!-- CHAOS BUTTON SMASH -->
+<div id="chaosGame" class="hidden">
+  <h2>Chaos Button Smash</h2>
+  <button id="chaosBtn">SMASH ME!</button>
+  <p>Presses: <span id="chaosCount">0</span></p>
+  <button onclick="resetChaosGame()">Back to Menu</button>
+</div>
+
+<!-- MYSTERY BOX -->
+<div id="mysteryGame" class="hidden">
+  <h2>Mystery Box Adventure</h2>
+  <button onclick="openBox()">Open the Box</button>
+  <p id="boxMessage"></p>
+  <button onclick="resetMysteryGame()">Back to Menu</button>
+</div>
+
+<!-- JUMPSCARE -->
+<div id="jumpscare">
+  <img src="lg-jumpscare.jpg" alt="LG Jumpscare">
+</div>
+
+<script>
+// ====== LG DODGE GAME ======
+let playerX = 145, lgX = 130, lgY = 20, lgSpeed = 250, lgInterval;
+
+const player = document.getElementById("player");
+const lg = document.getElementById("lg");
+const status = document.getElementById("status");
+
+function startLGGame() {
+  hideAllGames();
+  document.getElementById("lgGame").classList.remove("hidden");
+  startGame();
+}
+
+function startGame() {
+  lgInterval = setInterval(moveLG, lgSpeed);
+}
+
+document.addEventListener("keydown", e => {
+  if (document.getElementById("lgGame").classList.contains("hidden")) return;
+  if (e.key === "ArrowLeft") playerX -= 20;
+  if (e.key === "ArrowRight") playerX += 20;
+  playerX = Math.max(0, Math.min(290, playerX));
+  player.style.left = playerX + "px";
+});
+
+function moveLG() {
+  if (playerX > lgX) lgX += Math.random() * 20;
+  if (playerX < lgX) lgX -= Math.random() * 20;
+  lgY += Math.random() * 40 + 10;
+  lgX = Math.max(0, Math.min(260, lgX));
+  lgY = Math.max(0, Math.min(260, lgY));
+  lg.style.left = lgX + "px";
+  lg.style.top = lgY + "px";
+  lg.style.transform = `rotate(${Math.random()*30-15}deg)`;
+
+  if (Math.abs(playerX - lgX) < 35 && lgY > 220) endLGGame();
+}
+
+function endLGGame() {
+  clearInterval(lgInterval);
+  const jumpscare = document.getElementById("jumpscare");
+  jumpscare.style.display = "flex";
+  setTimeout(() => {
+    jumpscare.style.display = "none";
+    resetLGGame();
+  }, 800);
+}
+
+function resetLGGame() {
+  clearInterval(lgInterval);
+  hideAllGames();
+  document.getElementById("menu").classList.remove("hidden");
+  playerX = 145; lgX = 130; lgY = 20;
+  player.style.left = playerX + "px";
+  lg.style.left = lgX + "px";
+  lg.style.top = lgY + "px";
+}
+
+// ====== CLICKER GAME ======
+let clicks = 0;
+document.getElementById("clickBtn").addEventListener("click", () => {
+  clicks++;
+  document.getElementById("clickCount").innerText = clicks;
+});
+function startClickerGame() {
+  hideAllGames();
+  document.getElementById("clickerGame").classList.remove("hidden");
+}
+function resetClickerGame() {
+  clicks = 0;
+  hideAllGames();
+  document.getElementById("menu").classList.remove("hidden");
+}
+
+// ====== CHAOS BUTTON ======
+let chaosCount = 0;
+document.getElementById("chaosBtn").addEventListener("click", () => {
+  chaosCount++;
+  document.getElementById("chaosCount").innerText = chaosCount;
+});
+function startChaosGame() {
+  hideAllGames();
+  document.getElementById("chaosGame").classList.remove("hidden");
+}
+function resetChaosGame() {
+  chaosCount = 0;
+  hideAllGames();
+  document.getElementById("menu").classList.remove("hidden");
+}
+
+// ====== MYSTERY BOX ======
+const boxMessages = [
+  "You found a potato. 🥔",
+  "A wild LG appears! 🐱",
+  "Nothing happens... or does it?",
+  "Congrats! You win absolutely nothing.",
+  "Your mouse is now cursed. 😈"
+];
+function openBox() {
+  const msg = boxMessages[Math.floor(Math.random()*boxMessages.length)];
+  document.getElementById("boxMessage").innerText = msg;
+}
+function startMysteryGame() {
+  hideAllGames();
+  document.getElementById("mysteryGame").classList.remove("hidden");
+}
+function resetMysteryGame() {
+  document.getElementById("boxMessage").innerText = "";
+  hideAllGames();
+  document.getElementById("menu").classList.remove("hidden");
+}
+
+// ====== UTILITY ======
+function hideAllGames() {
+  document.getElementById("lgGame").classList.add("hidden");
+  document.getElementById("clickerGame").classList.add("hidden");
+  document.getElementById("chaosGame").classList.add("hidden");
+  document.getElementById("mysteryGame").classList.add("hidden");
+}
+</script>
+
+</body>
 </html>
