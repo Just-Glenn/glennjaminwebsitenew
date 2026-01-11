@@ -189,7 +189,19 @@
     </div>
 
 <script>
-const GROQ_API_KEY = "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"; 
+// DELETE THIS LINE: const GROQ_API_KEY = "gsk_...";
+
+// UPDATE your fetch call inside sendMessage():
+const response = await fetch("/api/chat", { // Calls your local hidden route
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        messages: [
+            { role: "system", content: PERSONALITY }, 
+            { role: "user", content: text }
+        ]
+    })
+});
 
 let userName = localStorage.getItem('alex_username') || "User";
 let userMemory = localStorage.getItem('alex_memory') || "No prior data stored.";
